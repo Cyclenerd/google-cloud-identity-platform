@@ -8,6 +8,12 @@ In this repo you find examples and a step-by-step documentation how to configure
 
 I explain here how you can develop a webapp and implement login with GitHub via Google Cloud Identity Platform.
 
+## Demo
+
+**👉 [gcloud-identity.nkn-it.de](https://gcloud-identity.nkn-it.de/)**
+
+[![Screenshot: Demo webapp](./img/github-sign-in-ok.png)](https://gcloud-identity.nkn-it.de/)
+
 ## :octocat: Signing in users with GitHub
 
 To configure GitHub as an identity provider:
