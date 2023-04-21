@@ -18,7 +18,7 @@ I explain here how you can develop a webapp and implement login with GitHub via 
 
 To configure GitHub as an identity provider:
 
-1. Go to the Identity Platform ([Tools -> Identity Platform](https://console.cloud.google.com/customer-identity)) page in the Google Cloud console.
+1. Go to the Identity Platform ([Tools -> Identity Platform](https://console.cloud.google.com/customer-identity?project=_)) page in the Google Cloud console.
 1. Enable Identity Platform.
   ![Screenshot: Enable Identity Platform in Google Cloud console](./img/google-cloud-console-enable.png)
 1. Click Add A Provider.
@@ -77,7 +77,7 @@ The most important steps are...
 
 ### Configure your OAuth Consent Screen
 
-1. Open the OAuth consent screen ([Management -> APIs & Services -> OAuth consent screen](https://console.cloud.google.com/apis/credentials/consent)) page in the Google Cloud console and create a new screen. 
+1. Open the OAuth consent screen ([Management -> APIs & Services -> OAuth consent screen](https://console.cloud.google.com/apis/credentials/consent?project=_)) page in the Google Cloud console and create a new screen. 
   ![Screenshot: Create OAuth consent screen](./img/google-cloud-oauth-screen.png)
 1. On the "OAuth consent screen" page, fill out the form and click the "Save" button.
   ![Screenshot: OAuth consent screen configuration](./img/google-cloud-oauth-screen-config.png)
@@ -95,6 +95,21 @@ The most important steps are...
 1. Go to the Identity Platform page in the Google Cloud console and create a new provider (Google). Paste Client ID and Client Secret.
   ![Screenshot: Credentials](./img/google-cloud-google-provider.png)
 
+## 🔐 Security
+
+The Google API key (`apiKey`) is publicly accessible (i.e. in [`config.js`](./page/config.js))!
+
+According to the [Firebase documentation](https://firebase.google.com/docs/projects/api-keys#general-info), this is not a problem and not a security issue.
+To implement some extra precautions and not to see the warning you can limit the auto-created keys by Firebase.
+
+1. You can view and manage all your project's API keys in the <a href="https://console.cloud.google.com/projectselector2/apis/credentials?project=_">APIs & Services -> Credentials</a> panel in the Google Cloud Console.
+1. Select "Browser key (auto created by Firebase)".
+1. Restrict key usage to specified websites.
+   Add your Firebase website and all other websites.
+    ![Screenshot: Key restrictions](./img/google-cloud-api-key.png)
+
+You can also implement other restrictions, like reducing the `identitytoolkit.googleapis.com` [API quota](https://console.cloud.google.com/apis/api/identitytoolkit.googleapis.com/quotas?project=_) of the project.
+
 ## 📚 More to read
 
 * [Creating a GitHub App](https://docs.github.com/en/apps/creating-github-apps/creating-github-apps/creating-a-github-app) (Google Docs)
@@ -102,6 +117,7 @@ The most important steps are...
 * [Alternative ways to add Firebase to your JavaScript project](https://firebase.google.com/docs/web/alt-setup#from-the-cdn) (Firebase Docs)
 * [FirebaseUI for Web](https://github.com/firebase/firebaseui-web#readme) (GitHub repo)
 * [Verify ID tokens using a third-party JWT library](https://firebase.google.com/docs/auth/admin/verify-id-tokens#verify_id_tokens_using_a_third-party_jwt_library) (Firebase Docs)
+* [Learn about using and managing API keys for Firebase](https://firebase.google.com/docs/projects/api-keys) (Firebase Docs)
 
 ## ❤️ Contributing
 
