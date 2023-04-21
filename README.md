@@ -18,7 +18,7 @@ I explain here how you can develop a webapp and implement login with GitHub via 
 
 To configure GitHub as an identity provider:
 
- 1. Go to the Identity Platform ([Tools -> Identity Platform](https://console.cloud.google.com/customer-identity)) page in the Google Cloud console.
+1. Go to the Identity Platform ([Tools -> Identity Platform](https://console.cloud.google.com/customer-identity)) page in the Google Cloud console.
 1. Enable Identity Platform.
   ![Screenshot: Enable Identity Platform in Google Cloud console](./img/google-cloud-console-enable.png)
 1. Click Add A Provider.
@@ -63,10 +63,37 @@ To configure GitHub as an identity provider:
 1. Save the GitHub provider.
 1. Done 🎉
 
-You can now start integrating the GitHub provider into your webapp. I have prepared an example with comments:
+You can now start integrating the [GitHub provider](#octocat-signing-in-users-with-github) into your webapp. I have prepared an example with comments:
 
 * [Website (`github.html`)](./page/github.html)
 * [JavaScript (`github.js`)](./page/github.js)
+
+## 🔑 Signing in users with Google
+
+I don't describe the configuration in as much detail as I do with GitHub.
+The configuration is similar.
+
+The most important steps are...
+
+### Configure your OAuth Consent Screen
+
+1. Open the OAuth consent screen ([Management -> APIs & Services -> OAuth consent screen](https://console.cloud.google.com/apis/credentials/consent)) page in the Google Cloud console and create a new screen. 
+  ![Screenshot: Create OAuth consent screen](./img/google-cloud-oauth-screen.png)
+1. On the "OAuth consent screen" page, fill out the form and click the "Save" button.
+  ![Screenshot: OAuth consent screen configuration](./img/google-cloud-oauth-screen-config.png)
+
+### Get your Google API client ID
+
+1. Open the Credentials page in the Google Cloud console.
+  Use the existing web client ID or create a new one.
+  ![Screenshot: Credentials](./img/google-cloud-api-credentials.png)
+1. Copy the Client ID and Client secret.
+  ![Screenshot: Client ID and Client Secret](./img/google-cloud-api-credentials-key.png)
+
+### Create Google provider
+
+1. Go to the Identity Platform page in the Google Cloud console and create a new provider (Google). Paste Client ID and Client Secret.
+  ![Screenshot: Credentials](./img/google-cloud-google-provider.png)
 
 ## 📚 More to read
 
@@ -86,7 +113,6 @@ Awesome! Follow these steps to have it accepted.
 1. Create a Pull Request.
 1. Incorporate review feedback to your changes.
 1. Accepted!
-
 
 ## 📜 License
 

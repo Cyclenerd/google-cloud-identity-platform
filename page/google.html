@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google - Demo - Google Cloud Identity Platform</title>
+<link rel="canonical" href="https://gcloud-identity.nkn-it.de/google.html">
+<meta name="robots" content="noindex, nofollow">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.20.0/firebase-app-compat.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.20.0/firebase-auth-compat.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+<script src="config.js"></script>
+<script src="google.js"></script>
+</head>
+<body>
+<main class="form-signin w-100 m-auto text-center">
+	<!-- Google logo (Source: https://simpleicons.org/?q=google) -->
+	<svg 
+		xmlns="http://www.w3.org/2000/svg"
+		width="128"
+		height="128"
+		role="img"
+		viewBox="0 0 24 24"
+	>
+		<title>Google</title>
+		<path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
+	</svg>
+	<!-- // Google logo -->
+
+	<!-- hello -->
+	<div class="invisible mt-5 mb-3" id="hello">
+		<p class="fs-4">
+			👋 Hello, <span id="user-name">Unknown</span>
+		</p>
+		<p>
+			Google User ID <code id="user-id">???</code>
+		</p>
+	</div>
+	<!-- // hello -->
+
+	<p>
+		<!-- This button handles sign-in -->
+		<button
+			type="button"
+			class="w-100 btn btn-lg btn-secondary"
+			id="button"
+			disabled
+		>Loading...</button>
+	</p>
+	<p class="alert alert-warning" role="alert">
+		This webapp is limited to Google Workspace users within its organization.
+	</p>
+
+	<!-- sign-out -->
+	<p class="invisible" id="sign-out">
+		<button type="button" class="w-100 btn btn-outline-danger" id="button-sign-out">Sign out</button>
+	</p>
+	<!-- // sign-out -->
+
+	<p class="mt-5 mb-3 text-muted">&copy; 2023 <a href="https://www.nkn-it.de/">NKN-IT</a></p>
+</main>
+
+<!-- user-modal -->
+<div class="modal" tabindex="-1" id="user-modal">
+	<div class="modal-dialog modal-fullscreen">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">User's</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div> <!-- // modal-header -->
+			<div class="modal-body">
+				<p class="fw-bold">
+					JWT token (<code>firebase.auth().currentUser.getIdToken</code>):
+				</p>
+				<p>
+					<textarea class="form-control font-monospace" id="jwt-token" rows="14">???</textarea>
+				</p>
+				<p class="fw-bold">
+					Profile information (<code>firebase.auth().currentUser</code>):
+				</p>
+				<pre id="user">???</pre>
+			</div> <!-- // modal-body -->
+			<div class="modal-footer">
+				<a
+					href="https://firebase.google.com/docs/reference/js/v8/firebase.User"
+					role="button"
+					class="btn btn-outline-primary"
+					target="_blank"
+				>Firebase Reference</a>
+				<a
+					href="https://firebase.google.com/docs/auth/admin/verify-id-tokens#verify_id_tokens_using_a_third-party_jwt_library"
+					role="button"
+					class="btn btn-outline-primary"
+					target="_blank"
+				>Firebase Docs</a>
+				<a
+					href="https://jwt.io/"
+					role="button"
+					class="btn btn-primary"
+					target="_blank"
+					id="button-jwt"
+				>JWT Debugger</a>
+			</div> <!-- // modal-footer -->
+		</div> <!-- // modal-content -->
+	</div> <!-- // modal-dialog -->
+</div>
+<!-- // user-modal -->
+
+</body>
+</html>
