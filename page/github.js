@@ -6,6 +6,10 @@ function signIn() {
 		document.getElementById('button').classList.replace('btn-success', 'btn-secondary'); // from [Sign in]
 		document.getElementById('button').textContent = 'Please login... (pop-up)';
 		var provider = new firebase.auth.GithubAuthProvider();
+		// Disable new user sign up during login
+		provider.setCustomParameters({
+			'allow_signup': 'false'
+		});
 		firebase.auth().signInWithPopup(provider).then(function(result) {
 			// This gives you a GitHub Access Token. You can use it to access the GitHub API.
 			// https://firebase.google.com/docs/reference/js/v8/firebase.auth.OAuthCredential#optional-accesstoken
