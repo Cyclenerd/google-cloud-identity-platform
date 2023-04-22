@@ -112,12 +112,13 @@ You can also implement other restrictions, like reducing the `identitytoolkit.go
 
 ## 📚 More to read
 
-* [Creating a GitHub App](https://docs.github.com/en/apps/creating-github-apps/creating-github-apps/creating-a-github-app) (Google Docs)
+* [Creating a GitHub App](https://docs.github.com/en/apps/creating-github-apps/creating-github-apps/creating-a-github-app) (GitHub Docs)
 * [Signing in users with GitHub](https://cloud.google.com/identity-platform/docs/web/github) (Google Docs)
 * [Alternative ways to add Firebase to your JavaScript project](https://firebase.google.com/docs/web/alt-setup#from-the-cdn) (Firebase Docs)
 * [FirebaseUI for Web](https://github.com/firebase/firebaseui-web#readme) (GitHub repo)
 * [Verify ID tokens using a third-party JWT library](https://firebase.google.com/docs/auth/admin/verify-id-tokens#verify_id_tokens_using_a_third-party_jwt_library) (Firebase Docs)
 * [Learn about using and managing API keys for Firebase](https://firebase.google.com/docs/projects/api-keys) (Firebase Docs)
+* [Register an Azure AD application](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#register-an-application)
 
 ## ❤️ Contributing
 
