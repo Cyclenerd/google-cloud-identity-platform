@@ -63,14 +63,46 @@ To configure GitHub as an identity provider:
 1. Save the GitHub provider.
 1. Done 🎉
 
-You can now start integrating the [GitHub provider](#octocat-signing-in-users-with-github) into your webapp. I have prepared an example with comments:
+You can now start integrating the GitHub provider into your webapp. I have prepared an example with comments:
 
 * [Website (`github.html`)](./page/github.html)
 * [JavaScript (`github.js`)](./page/github.js)
 
+## 🪟 Signing in users with Microsoft
+
+I don't describe the configuration in as much detail as I do with [GitHub](#octocat-signing-in-users-with-github).
+The configuration is similar.
+
+The most important steps are...
+
+### Register an application
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Search for and select Azure Active Directory.
+1. Under Manage, select App registrations -> New registration.
+  ![Screenshot: App registration](./img/azure-ad-new-app.png)
+1. Enter a display Name and as redirect URI your Firebase URL.
+  ![Screenshot: Regsiter an application](./img/azure-ad-new-app-config.png)
+1. Select Register to complete the initial app registration.
+1. When registration finishes, the Azure portal displays the app registration's Overview pane. You see the Application (client) ID.
+  ![Screenshot: verview pane](./img/azure-ad-new-app-id.png)
+    1. Copy the application (client) ID.
+    1. Add a new client secret.
+1. Create a new client secret.
+  ![Screenshot: Certificates & secrets](./img/azure-ad-new-app-secret.png)
+1. Enter a description and choose an expiration date.
+  ![Screenshot: Certificates & secrets](./img/azure-ad-new-app-secret-config.png)
+1. Copy the value of the application (client) secret.
+  ![Screenshot: Certificates & secrets](./img/azure-ad-new-app-secret-copy.png)
+
+### Create Microsoft provider
+
+1. Go to the Identity Platform page in the Google Cloud console and create a new provider (Microsoft). Paste App ID and App Secret.
+  ![Screenshot: Credentials](./img/google-cloud-microsoft-provider.png)
+
 ## 🔑 Signing in users with Google
 
-I don't describe the configuration in as much detail as I do with GitHub.
+I don't describe the configuration in as much detail as I do with [GitHub](#octocat-signing-in-users-with-github).
 The configuration is similar.
 
 The most important steps are...
@@ -112,13 +144,18 @@ You can also implement other restrictions, like reducing the `identitytoolkit.go
 
 ## 📚 More to read
 
-* [Creating a GitHub App](https://docs.github.com/en/apps/creating-github-apps/creating-github-apps/creating-a-github-app) (GitHub Docs)
-* [Signing in users with GitHub](https://cloud.google.com/identity-platform/docs/web/github) (Google Docs)
+* GitHub
+  * [Creating a GitHub App](https://docs.github.com/en/apps/creating-github-apps/creating-github-apps/creating-a-github-app) (GitHub Docs)
+  * [Signing in users with GitHub](https://cloud.google.com/identity-platform/docs/web/github) (Google Docs)
+* Microsoft
+  * [Register an Azure AD application](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#register-an-application) (Microsoft Docs)
+  * [Signing in users with Microsoft](https://cloud.google.com/identity-platform/docs/web/microsoft) (Google Docs)
+* Google
+  * [Signing in users with Google](https://cloud.google.com/identity-platform/docs/web/google) (Google Docs)
 * [Alternative ways to add Firebase to your JavaScript project](https://firebase.google.com/docs/web/alt-setup#from-the-cdn) (Firebase Docs)
 * [FirebaseUI for Web](https://github.com/firebase/firebaseui-web#readme) (GitHub repo)
 * [Verify ID tokens using a third-party JWT library](https://firebase.google.com/docs/auth/admin/verify-id-tokens#verify_id_tokens_using_a_third-party_jwt_library) (Firebase Docs)
 * [Learn about using and managing API keys for Firebase](https://firebase.google.com/docs/projects/api-keys) (Firebase Docs)
-* [Register an Azure AD application](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#register-an-application)
 
 ## ❤️ Contributing
 
