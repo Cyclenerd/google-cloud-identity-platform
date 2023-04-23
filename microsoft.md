@@ -2,7 +2,7 @@
 
 This how-to assumes you've already enabled Identity Platform,
 and have a basic knowledge.
-Please see the [GitHub](./github) tutorial to learn how.
+Please see the [GitHub](./github.md) tutorial to learn how.
 
 The most important steps are...
 
