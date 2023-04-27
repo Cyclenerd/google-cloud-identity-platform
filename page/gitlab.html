@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GitLab - Demo - Google Cloud Identity Platform</title>
+<link rel="canonical" href="https://gcloud-identity.nkn-it.de/github.html">
+<meta name="robots" content="noindex, nofollow">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.20.0/firebase-app-compat.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.20.0/firebase-auth-compat.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+<script src="config.js"></script>
+<script src="gitlab.js"></script>
+</head>
+<body>
+<main class="form-signin w-100 m-auto text-center">
+	<!-- GitLab logo (Source: https://simpleicons.org/?q=gitlab) -->
+	<svg 
+		xmlns="http://www.w3.org/2000/svg"
+		width="128"
+		height="128"
+		role="img"
+		viewBox="0 0 24 24"
+	>
+		<title>GitLab</title>
+		<path
+			fill="#FC6D26"
+			d="m23.6004 9.5927-.0337-.0862L20.3.9814a.851.851 0 0 0-.3362-.405.8748.8748 0 0 0-.9997.0539.8748.8748 0 0 0-.29.4399l-2.2055 6.748H7.5375l-2.2057-6.748a.8573.8573 0 0 0-.29-.4412.8748.8748 0 0 0-.9997-.0537.8585.8585 0 0 0-.3362.4049L.4332 9.5015l-.0325.0862a6.0657 6.0657 0 0 0 2.0119 7.0105l.0113.0087.03.0213 4.976 3.7264 2.462 1.8633 1.4995 1.1321a1.0085 1.0085 0 0 0 1.2197 0l1.4995-1.1321 2.4619-1.8633 5.006-3.7489.0125-.01a6.0682 6.0682 0 0 0 2.0094-7.003z"/>
+	</svg>
+	<!-- // GitLab logo -->
+
+	<!-- hello -->
+	<div class="invisible mt-5 mb-3" id="hello">
+		<p class="fs-4">
+			👋 Hello, <span id="user-name">Unknown</span>
+		</p>
+		<p>
+			GitLab User ID <code id="user-id">???</code>
+		</p>
+	</div>
+	<!-- // hello -->
+
+	<p>
+		<!-- This button handles sign-in -->
+		<button
+			type="button"
+			class="w-100 btn btn-lg btn-secondary"
+			id="button"
+			disabled
+		>Loading...</button>
+	</p>
+
+	<!-- sign-out -->
+	<p class="invisible" id="sign-out">
+		<button type="button" class="w-100 btn btn-outline-danger" id="button-sign-out">Sign out</button>
+	</p>
+	<!-- // sign-out -->
+
+	<p class="mt-5 mb-3 text-muted">&copy; 2023 <a href="https://github.com/Cyclenerd/google-cloud-identity-platform">NKN-IT</a></p>
+</main>
+
+<!-- user-modal -->
+<div class="modal" tabindex="-1" id="user-modal">
+	<div class="modal-dialog modal-fullscreen">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">User's</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div> <!-- // modal-header -->
+			<div class="modal-body">
+				<p class="fw-bold">
+					JWT token for backend (<code>firebase.auth().currentUser.getIdToken</code>):
+				</p>
+				<p>
+					<textarea class="form-control font-monospace" id="jwt-token" rows="8">???</textarea>
+				</p>
+				<p class="fw-bold">
+					Profile information (<code>firebase.auth().currentUser</code>):
+				</p>
+				<pre id="user">???</pre>
+			</div> <!-- // modal-body -->
+			<div class="modal-footer">
+				<a
+					href="https://firebase.google.com/docs/reference/js/v8/firebase.User"
+					role="button"
+					class="btn btn-outline-primary"
+					target="_blank"
+				>Firebase Reference</a>
+				<a
+					href="https://firebase.google.com/docs/auth/admin/verify-id-tokens#verify_id_tokens_using_a_third-party_jwt_library"
+					role="button"
+					class="btn btn-outline-primary"
+					target="_blank"
+				>Firebase Docs</a>
+				<a
+					href="https://jwt.io/"
+					role="button"
+					class="btn btn-primary"
+					target="_blank"
+					id="button-jwt"
+				>JWT Debugger</a>
+			</div> <!-- // modal-footer -->
+		</div> <!-- // modal-content -->
+	</div> <!-- // modal-dialog -->
+</div>
+<!-- // user-modal -->
+
+</body>
+</html>

@@ -2,21 +2,29 @@
 
 [![Bagde: Google Cloud](https://img.shields.io/badge/Google%20Cloud-%234285F4.svg?logo=google-cloud&logoColor=white)](#readme)
 [![Badge: GitHub](https://img.shields.io/badge/GitHub-181717.svg?logo=github&logoColor=white)](#readme)
+[![Badge: GitLab](https://img.shields.io/badge/GitLab-FC6D26.svg?logo=gitlab&logoColor=white)](#readme)
+[![Bagde: Windows](https://img.shields.io/badge/Windows-008080.svg?logo=windows95&logoColor=white)](#readme)
 [![Bagde: GitHub](https://img.shields.io/github/license/cyclenerd/google-cloud-identity-platform)](https://github.com/Cyclenerd/google-cloud-identity-platform/blob/master/LICENSE)
 
 In this repo you find examples and a step-by-step documentation how to configure [Google Cloud Identity Platform](https://cloud.google.com/identity-platform).
 
-It shows you how to develop a webapp and implement login with [GitHub](./github.md), [Microsoft](./microsoft.md) and [Google](./google.md) via Google Cloud Identity Platform.
+It shows you how to develop a webapp and implement login with
+[GitHub](./github.md),
+[GitLab](./gitlab.md),
+[Microsoft](./microsoft.md) and
+[Google](./google.md)
+via Google Cloud Identity Platform.
 
-## Demo
+## 🎉 Demo
 
 **👉 [gcloud-identity.nkn-it.de](https://gcloud-identity.nkn-it.de/)**
 
 [![Screenshot: Demo webapp](./img/github-sign-in-ok.png)](https://gcloud-identity.nkn-it.de/)
 
-## How-tos
+## 📝 How-tos
 
 * [:octocat: Signing in users with GitHub](./github.md)
+* [🦊 Signing in users with GitLab](./gitlab.md)
 * [🪟 Signing in users with Microsoft](./microsoft.md)
 * [🔑 Signing in users with Google](./google.md)
 * [🔐 Security](./security.md)
@@ -26,6 +34,9 @@ It shows you how to develop a webapp and implement login with [GitHub](./github.
 * GitHub
   * [Creating a GitHub App](https://docs.github.com/en/apps/creating-github-apps/creating-github-apps/creating-a-github-app) (GitHub Docs)
   * [Signing in users with GitHub](https://cloud.google.com/identity-platform/docs/web/github) (Google Docs)
+* GitLab
+  * [Configure GitLab as an OAuth 2.0 authentication identity provider](https://docs.gitlab.com/ee/integration/oauth_provider.html#view-all-authorized-applications) (GitLab Docs)
+  * [Signing in users with OIDC](https://cloud.google.com/identity-platform/docs/web/oidc) (Google Docs)
 * Microsoft
   * [Register an Azure AD application](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#register-an-application) (Microsoft Docs)
   * [Signing in users with Microsoft](https://cloud.google.com/identity-platform/docs/web/microsoft) (Google Docs)
