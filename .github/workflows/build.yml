@@ -25,7 +25,7 @@ jobs:
     steps:
       # https://github.com/marketplace/actions/checkout
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
